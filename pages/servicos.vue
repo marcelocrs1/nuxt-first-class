@@ -58,7 +58,7 @@ export default {
     this.services = await this.$axios.$get(
       "https://jsonplaceholder.typicode.com/users?_limit=3"
     );
-    console.log(this);
+    // console.log(this);
   },
   created() {
     this.getTitle();
