@@ -6,12 +6,36 @@
     <br />
     <br />
 
+    <div
+      v-for="product in products"
+      :key="product.id"
+      class="border-b border-gray-400 py-3"
+    >
+      {{ product.title }}
+    </div>
+    <br />
+
     <NuxtChild />
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "",
+
+  data() {
+    return {};
+  },
+
+  async asyncData({ $axios }) {
+    const products = await $axios.$get(
+      "https://jsonplaceholder.typicode.com/posts?_limit=3"
+    );
+    return {
+      products,
+    };
+  },
+};
 </script>
 
 <style></style>
